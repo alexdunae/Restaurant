@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
       session[:client_id] = @client.id
       session[:table_id] = @client.table.id
     end
-		
+
     if @client.id != session[:client_id]  && !current_waiter.present?
       redirect_to root_path
     end
@@ -62,6 +62,7 @@ class ClientsController < ApplicationController
     redirect_to :back
   end
 
+  # you don't need this one since it's already in your ApplicationController
   def catch_not_found
     yield
     rescue ActiveRecord::RecordNotFound

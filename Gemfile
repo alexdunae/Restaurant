@@ -30,9 +30,9 @@ gem 'friendly_id'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'devise', '~> 3.4.1'
 gem "paperclip", "~> 4.2"
-gem 'money-rails'
+gem 'money-rails' # good find – doesn't look like you used it, though...
 gem "chartkick"
-gem 'groupdate'
+gem 'groupdate' # good find!
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

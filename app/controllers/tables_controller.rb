@@ -18,7 +18,7 @@ class TablesController < ApplicationController
 		if current_waiter.present?
 			session[:table_id] = @table.id
 		end
-		
+
 		if current_table.present? && current_table != @table
 			redirect_to table_path(current_table)
 		end
@@ -50,7 +50,7 @@ class TablesController < ApplicationController
 			flash[:error] = "Incorrect code!"
 			redirect_to root_path
 		end
-		
+
 	end
 
 	def toggle_request
@@ -86,8 +86,8 @@ class TablesController < ApplicationController
 		  @table.save
 		  redirect_to waiters_tables_path
 		end
-		
-	end	
+
+	end
 
 	def destroy
 		@table = Table.find(params[:id])
@@ -96,6 +96,7 @@ class TablesController < ApplicationController
 		redirect_to :back
 	end
 
+	# neat!
 	def catch_not_found
 	  yield
 	  rescue ActiveRecord::RecordNotFound
