@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427055156) do
+ActiveRecord::Schema.define(version: 20150427042833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20150427055156) do
   create_table "clients", force: :cascade do |t|
     t.string   "name"
     t.boolean  "done",           default: false
+    t.boolean  "checking_out",   default: false
     t.string   "payment_method"
     t.integer  "howManyTime"
     t.integer  "table_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.boolean  "checking_out"
   end
 
   add_index "clients", ["table_id"], name: "index_clients_on_table_id", using: :btree
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 20150427055156) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "orders", force: :cascade do |t|
+    t.float    "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float    "total"
   end
 
   create_table "tables", force: :cascade do |t|
